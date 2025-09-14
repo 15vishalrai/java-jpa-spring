@@ -22,80 +22,123 @@ public class SpringbootDataJpaFirstappApplication {
 
 		IDoctorService service = ctx.getBean("doctorservice", IDoctorService.class);
 
-		try {
-			Doctor doctor = new Doctor();
-			doctor.setName("Vishal rai");
-			doctor.setSpecilization("ortho");
-			doctor.setIncome(200000);
+//		try {
+//			Doctor doctor = new Doctor();
+//			doctor.setName("Pankaj rai");
+//			doctor.setSpecilization("Ayurvedic");
+//			doctor.setIncome(200000);
+//
+//			Doctor doctor1 = new Doctor();
+//			doctor1.setName("Deepak rai");
+//			doctor1.setSpecilization("Homeo");
+//			doctor1.setIncome(5000000);
+//			// String result = service.registerDoctor(doctor);
+//			// System.out.println(result);
+//
+//			String result = service.registerDoctor(List.of(doctor, doctor1));
+//			System.out.println(result);
+//
+//		} catch (Exception e) {
+//
+//			e.printStackTrace();
+//
+//		}
 
-			Doctor doctor1 = new Doctor();
-			doctor1.setName("Shubham rai");
-			doctor1.setSpecilization("neuro");
-			doctor1.setIncome(5000000);
-			// String result = service.registerDoctor(doctor);
-			// System.out.println(result);
-
-			String result = service.registerDoctor(List.of(doctor, doctor1));
-			System.out.println(result);
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-		}
-
-		try { // handling the unchecked exception, otherwise program crashes |
-				// unchecked exception are not catched by jvm and not force you to write try
-				// catch or throws for this
-				// but it is better to handle unchecked exceptions also
-			boolean flag = service.isDoctorAvailable(1);
-			if (flag) {
-				System.out.println("Customer Available");
-			} else {
-				System.out.println("customer not available");
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-
-		long count = service.fetchDoctors();
-		System.out.println("Total numbers of record are " + count);
-		
-		System.out.println("_______________________");
-		
-		Iterable<Doctor> result =service.findAllDoctors(); 
-//		for(Doctor dr:result) {  // for-each loop or enhanced for loop
-//			System.out.println(dr);  1st way to iterate over element in collectioin
+//		try { // handling the unchecked exception, otherwise program crashes |
+//				// unchecked exception are not catched by jvm and not force you to write try
+//				// catch or throws for this
+//				// but it is better to handle unchecked exceptions also
+//			boolean flag = service.isDoctorAvailable(1);
+//			if (flag) {
+//				System.out.println("Customer Available");
+//			} else {
+//				System.out.println("customer not available");
+//			}
+//
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//
+//		long count = service.fetchDoctors();
+//		System.out.println("Total numbers of record are " + count);
+//		
+//		System.out.println("_______________________");
+//		
+//		Iterable<Doctor> result =service.findAllDoctors(); 
+////		for(Doctor dr:result) {  // for-each loop or enhanced for loop
+////			System.out.println(dr);  1st way to iterate over element in collectioin
+////		}
+//		
+//		// result.forEach(doc->{System.out.println(doc);}); 
+//		//2nd way using foreach and lambda here consumer is the functional interface
+//		
+//		
+//		//result.forEach(doc->System.out.println(doc)); // more clean way of lamda foreach
+//		
+//		result.forEach(System.out::println); // static method reference for iteration (simplest)
+//		
+//		System.out.println("-----------");
+//		try {
+//			Doctor doctor=service.showDoctorById(20);
+//			System.out.println(doctor);
+//			
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//			e.getMessage();
+//		}
+//		
+//		try {
+//			String updatedDoctor =service.updateDoctorByIncome(2);
+//			System.out.println(updatedDoctor);
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
 //		}
 		
-		// result.forEach(doc->{System.out.println(doc);}); 
-		//2nd way using foreach and lambda here consumer is the functional interface
 		
-		
-		//result.forEach(doc->System.out.println(doc)); // more clean way of lamda foreach
-		
-		result.forEach(System.out::println); // static method reference for iteration (simplest)
-		
-		System.out.println("-----------");
-		try {
-			Doctor doctor=service.showDoctorById(20);
-			System.out.println(doctor);
+//		try {
+//			Doctor doctor = new Doctor();
+//			//new doctor object is created with new details
+//			doctor.setId(11);
+//			doctor.setIncome(300000);doctor.setName("abhishek");doctor.setSpecilization("Urology");
+//			//calling the service method with doctor object
+//			System.out.println(service.updateorRegisterDoctor(doctor));
+//			
+//			// In this i have to remove the db auto increment from @generatedvalue to save the manual supplied id
+//		}catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+//			try {
+//				Doctor doctor = new Doctor();
+//				System.out.println(service.deleteDoctorById(252));
+//				
+//			}catch (Exception e) {
+//				// TODO: handle exception
+//				e.printStackTrace();
+//			}
+			//System.out.println(service.deleteDoctorById(11)); // here we have call with try catch as method is handled exception
+			//in optional class so try catch is unnecessary here, btw i have also written calling statement in try catch also
 			
-		}catch (Exception e) {
-			// TODO: handle exception
-			e.getMessage();
-		}
+//		Doctor doctor = new Doctor();
+//		doctor.setId(204);doctor.setName("karan");
+//		System.out.println(service.deleteDoctorEntity(doctor));
+//		
+//		Doctor doctor = new Doctor(); 
+//		doctor.setId(303);doctor.setName("Deepak rai");doctor.setIncome(5030304);
+//		System.out.println(service.PartialUpdate(doctor));
 		
-		try {
-			String updatedDoctor =service.updateDoctorByIncome(2);
-			System.out.println(updatedDoctor);
-		}catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-			
+		//System.out.println(service.removeDoctorByids(List.of(3,303)));
+		
+		Doctor doctor = new Doctor();
+		doctor.setId(2);
+		Doctor doctor1 = new Doctor();
+		doctor1.setId(4); 
+		List<Doctor> doctorList = List.of(doctor,doctor1);
+		System.out.println(service.deleteentity(doctorList));
+		
+		
 		
 		
 		

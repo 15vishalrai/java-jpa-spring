@@ -12,7 +12,8 @@ import lombok.Data;
 public class Doctor {
 	@Column(name="Doc_ID")
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	//@GeneratedValue(strategy=GenerationType.AUTO) //if we give id from our side and this generated value is enabled then 
+	//optimistic locking failure exception
 	private Integer id;
 	
 	@Column(name="Doc_Name")
